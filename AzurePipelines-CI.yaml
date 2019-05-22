@@ -35,55 +35,57 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
 
-- task: Kubernetes@1
-  displayName: 'kubectl apply ConfigMap'
-  inputs:
-    connectionType: 'Azure Resource Manager'
-    azureSubscriptionEndpoint: 'Free Trial (7de6edb7-6fac-471c-b81b-9a17bc220032)'
-    azureResourceGroup: 'aks-k8s-cluster-rg'
-    kubernetesCluster: 'aks-k8s-cluster'
-    command: apply
-    useConfigurationFile: true
-    configuration: '/home/vsts/work/1/a/Kubernetes-project-Docker container-CI/drop/mssql-config-map.yaml'
-    versionSpec: 1.7.0
 
-- task: Kubernetes@1
-  displayName: 'kubectl apply Secret'
-  inputs:
-    connectionType: 'Azure Resource Manager'
-    azureSubscriptionEndpoint: 'Free Trial (7de6edb7-6fac-471c-b81b-9a17bc220032)'
-    azureResourceGroup: 'aks-k8s-cluster-rg'
-    kubernetesCluster: 'aks-k8s-cluster'
-    command: apply
-    useConfigurationFile: true
-    configuration: '$(System.DefaultWorkingDirectory)/Kubernetes-project-Docker container-CI/drop/mssql-secret.yaml'
-    versionSpec: 1.7.0
-    checkLatest: true
+#- task: Kubernetes@1
+#  displayName: 'kubectl apply ConfigMap'
+#  inputs:
+#    connectionType: 'Azure Resource Manager'
+#    azureSubscriptionEndpoint: 'Free Trial (7de6edb7-6fac-471c-b81b-9a17bc220032)'
+#    azureResourceGroup: 'aks-k8s-cluster-rg'
+#    kubernetesCluster: 'aks-k8s-cluster'
+#    command: apply
+#    useConfigurationFile: true
+#    configuration: '/home/vsts/work/1/a/Kubernetes-project-Docker container-CI/drop/mssql-config-map.yaml'
+#    versionSpec: 1.7.0
 
-- task: Kubernetes@1
-  displayName: 'kubectl apply Azure Disk'
-  inputs:
-    connectionType: 'Azure Resource Manager'
-    azureSubscriptionEndpoint: 'Free Trial (7de6edb7-6fac-471c-b81b-9a17bc220032)'
-    azureResourceGroup: 'aks-k8s-cluster-rg'
-    kubernetesCluster: 'aks-k8s-cluster'
-    command: apply
-    useConfigurationFile: true
-    configuration: '$(System.DefaultWorkingDirectory)/Kubernetes-project-Docker container-CI/drop/mssql-pv.azure.yaml'
-    versionSpec: 1.7.0
-    checkLatest: true
+# - task: Kubernetes@1
+#   displayName: 'kubectl apply Secret'
+#   inputs:
+#     connectionType: 'Azure Resource Manager'
+#     azureSubscriptionEndpoint: 'Free Trial (7de6edb7-6fac-471c-b81b-9a17bc220032)'
+#     azureResourceGroup: 'aks-k8s-cluster-rg'
+#     kubernetesCluster: 'aks-k8s-cluster'
+#     command: apply
+#     useConfigurationFile: true
+#     configuration: '$(System.DefaultWorkingDirectory)/Kubernetes-project-Docker container-CI/drop/mssql-secret.yaml'
+#     versionSpec: 1.7.0
+#     checkLatest: true
 
-- task: Kubernetes@1
-  displayName: 'kubectl apply MSSQL'
-  inputs:
-    connectionType: 'Azure Resource Manager'
-    azureSubscriptionEndpoint: 'Free Trial (7de6edb7-6fac-471c-b81b-9a17bc220032)'
-    azureResourceGroup: 'aks-k8s-cluster-rg'
-    kubernetesCluster: 'aks-k8s-cluster'
-    command: apply
-    useConfigurationFile: true
-    configuration: '$(System.DefaultWorkingDirectory)/Kubernetes-project-Docker container-CI/drop/mssql-deployment.yaml'
-    versionSpec: 1.7.0
+# - task: Kubernetes@1
+#   displayName: 'kubectl apply Azure Disk'
+#   inputs:
+#     connectionType: 'Azure Resource Manager'
+#     azureSubscriptionEndpoint: 'Free Trial (7de6edb7-6fac-471c-b81b-9a17bc220032)'
+#     azureResourceGroup: 'aks-k8s-cluster-rg'
+#     kubernetesCluster: 'aks-k8s-cluster'
+#     command: apply
+#     useConfigurationFile: true
+#     configuration: '$(System.DefaultWorkingDirectory)/Kubernetes-project-Docker container-CI/drop/mssql-pv.azure.yaml'
+#     versionSpec: 1.7.0
+#     checkLatest: true
+
+# - task: Kubernetes@1
+#   displayName: 'kubectl apply MSSQL'
+#   inputs:
+#     connectionType: 'Azure Resource Manager'
+#     azureSubscriptionEndpoint: 'Free Trial (7de6edb7-6fac-471c-b81b-9a17bc220032)'
+#     azureResourceGroup: 'aks-k8s-cluster-rg'
+#     kubernetesCluster: 'aks-k8s-cluster'
+#     command: apply
+#     useConfigurationFile: true
+#     configuration: '$(System.DefaultWorkingDirectory)/Kubernetes-project-Docker container-CI/drop/mssql-deployment.yaml'
+#     versionSpec: 1.7.0
+
 
 - task: Kubernetes@1
   displayName: 'kubectl apply MVC App'
