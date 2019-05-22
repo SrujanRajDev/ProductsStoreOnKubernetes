@@ -56,7 +56,7 @@ steps:
     kubernetesCluster: 'aks-k8s-cluster'
     command: apply
     useConfigurationFile: true
-    configuration: '$(System.DefaultWorkingDirectory)/Kubernetes-project-Docker container-CI/drop/mssql-secret.yaml'
+    configuration: '$(System.DefaultWorkingDirectory)//Kubernetes-project-Docker container-CI/drop/mssql-secret.yaml'
     versionSpec: 1.7.0
     checkLatest: true
 
